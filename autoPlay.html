@@ -145,7 +145,7 @@
             var back=get.byClass("back")[0];
             var arrow=get.byClass("arrow");
             var len=3;//需要轮播的图片数量 ，注意这里减去回滚用的
-            var imgWidth=document.documentElement.clientWidth;//获取当前屏幕的宽度
+            var imgWidth=document.documentElement.clientWidth || document.body.clientWidth;//获取当前屏幕的宽度,第二个属性为兼容IE
             var buttons=get.byClass("buttons")[0];
             var node=[];// li标签的容器
             var index=1;// 用于计算显示小圈圈的样式
@@ -158,7 +158,7 @@
             }
             window.onresize=function(){
                 //每次屏幕尺寸变化将当前宽度重新赋值给imgwidth，并且调用changeList
-                imgWidth=document.documentElement.clientWidth;
+                imgWidth=document.documentElement.clientWidth || document.body.clientWidth;
                 changeList()
             };
             function changeList(){
@@ -182,7 +182,7 @@
                     index += 1
                 }
                 animate(-imgWidth);
-                showButtons() //计算当前index后调用为指定小圈圈添加样式
+                showButtons(); //计算当前index后调用为指定小圈圈添加样式
             };
             back.onclick=function(){
                 if(anima == true){
@@ -225,7 +225,7 @@
                         }
                     }
                 }
-                go() //记得调用
+                go(); //记得调用
             }
             if(node.length >0){
                 node[0].className=node[0].className==""?" on":node.className+" on" ;//为第一个小圈圈设置样式
