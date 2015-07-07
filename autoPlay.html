@@ -209,7 +209,7 @@
                           充分想象一下，往左移动，假如 图片一位置是 -1000px 图片二位置是-2000px
                           此时位于图片二,需要移动到图片一
                           明显是图片一 的数值 大于 图片二 的数值
-                          即list.style.left < left 告诉浏览器 快点让它滚 */
+                          即list.style.left < left 告诉浏览器 快点让它向左滚 */
                         list.style.left = parseInt(list.style.left) + speed + 'px';//在原来位置的基础上将计算出来的speed加到当中进行向左（右）移动
                         setTimeout(go, 10);//不断的自我调用，直到不满足if条件（这段其实可以用setInterval带代替）
                     }else{
@@ -219,8 +219,8 @@
                             list.style.left= (-imgWidth * len)+"px"
                         }
                         if(left < -(imgWidth*len)){//去掉回滚用的图，list总的left值为 图片的数量 * 当前屏幕宽度
-                            //即 list.style.left 最大的值= -1400px * 3，超过就重置
-                            // list.style.left 最小的值= -1400px，超过就重置
+                            //即 list.style.left 最小的值= -1400px * 3，超过就重置
+                            // list.style.left 最大的值= -1400px * 1，超过就重置
                             list.style.left= -imgWidth+"px"
                         }
                     }
@@ -232,8 +232,8 @@
             }
             function showButtons(){
                 //调用小圈圈样式前，循环检查是否有on这个class存在
-                //为什么直接用 node[i].className=“” this.className=“on”;
-                //主要是绝对太简单粗暴了
+                //为什么不直接用 node[i].className=“” this.className=“on”;
+                //主要是觉得太简单粗暴了
                 for(var i=0;i<node.length;i++){
                     node[i].className=node[i].className==""?"":node[i].className.replace(/\son|on/,"");
                 }
