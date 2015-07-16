@@ -125,7 +125,7 @@
                 if(document.getElementsByClassName){
                     return document.getElementsByClassName(aclass)
                 }else{
-                    var Oparents=parent?parent.getElementById(parent):document,
+                    var Oparents=parent?document.getElementById(parent):document,
                             eles=[],elems=Oparents.getElementsByTagName("*");
                     for(var i=0;i<elems.length;i++){
                         if(elems[i].className == aclass){
